@@ -3,21 +3,21 @@ This repository includes four machine-learning predictive models of the processi
 
 ## File description
 
-- strength.h5:
+- P-S DNN.h5:
 
-  DNN model for predicting CRC yield strength
+  DNN model for predicting CRC dispersion from processing features
 
-- elongation.h5:
+- PSP DNN.h5:
 
-  DNN model for predicting CRC elongation at break
+  DNN model for predicting CRC properties obtained using feature fusion
 
-- log-fatigue.h5：
+- PSP max-DNN.h5：
 
-  DNN model for predicting CRC tensile fatigue life
+  DNN model for predicting CRC properties obtained using feature fusion and experimental structural information
 
-- pareto points.xlsx：
-  
-  The Pareto front point calculated based on the prediction results of the DNN model
+- PSP tf-DNN.h5：
+
+  DNN model for predicting CRC properties obtained using transfer learning
 
 ## Dependencies
 
@@ -31,11 +31,11 @@ This repository includes four machine-learning predictive models of the processi
   
  ```shell
   data = pd.read_csv('data.csv')
-  model = tf.keras.models.load_model('strength.h5')
+  model = tf.keras.models.load_model('P-S DNN.h5')
   predict_results = model.predict(data)
   ```
   Notice:
-In actual use, the predicted values ​​of the DNN model need to be multiplied by 40(strength), 7(log-fatigue), 700(elongation) respectively.
+In actual use, the predicted values ​​of the DNN model need to be multiplied by 35(strength), 7(log-fatigue), 700(elongation), 5(D-low), 25(D-mid), 15(D-high) respectively.
 
 ## Cite
  If you use any of our data or code, partly or as it is, please cite our paper.
